@@ -31,7 +31,6 @@ if (this.state.user){
 }else{
   <button onClick={this.handleAuth}>Login con Google</button>
 // si no está, que haga otra cosa
-
      }
   }
 
