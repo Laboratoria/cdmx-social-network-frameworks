@@ -9,6 +9,17 @@ class App extends Component {
     this.state = {
       user: null
     };
+
+    this.handleAuth = this.handleAuth.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+    this.renderLoginButton = this.renderLoginButton.bind(this);
+  }
+
+  componentWillMount () {
+  firebase.auth().onAuthStateChanged(user =>{
+  // modifica el estado
+    this.setState({ user });
+   })
   }
   
   handleAuth () {
@@ -19,17 +30,26 @@ class App extends Component {
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
 
-  renderLoginButton () {
+  handleLogout ( ){
+    firebase.auth().signOut()
+    .then(result => console.log(`${result.user.email} ha salido`))
+    .catch(error => console.log (`Error ${error.code}: ${error.message}`))
+  }
+
+renderLoginButton () {
 // si el usuario está logueado haga algo
 if (this.state.user){
   return (
-  <div>
-    <img src= {this.state.user.photoUrl} alt= {this.state.user.displayName} />
-    <p>Hola { this.state.user.displayName}!</p>
-  </div>
+    <div>
+     <img width ="100" src= {this.state.user.photoURL} alt= {this.state.user.displayName} />
+     <p>Hola {this.state.user.displayName}!</p>
+     <button onClick= {this.handleLogout}>Salir</button>
+    </div>
   );
 }else{
-  <button onClick={this.handleAuth}>Login con Google</button>
+  return(
+  <button className="Google-button" onClick={this.handleAuth}>Login con Google</button>
+)
 // si no está, que haga otra cosa
      }
   }
