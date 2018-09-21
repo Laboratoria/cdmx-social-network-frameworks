@@ -5,9 +5,7 @@ import './App.css';
 //se importa firebase
 import firebase from 'firebase';        
 class App extends Component {
-  //constructor trae las clases
 constructor () {
-  //llamar a super si se heredan las clases, super llamar al constructor de componer
   super();
   //definimos el estado de la app y el componente es un objeto que tiene propiedad
   //user y tiene valor nulo
@@ -29,7 +27,7 @@ firebase.auth().onAuthStateChanged(user =>{
 handleAuth(){
 const provider = new firebase.auth.GoogleAuthProvider();
 //llamamos la funcion de firebase auth y le pasamos al proveedor
-firebase.auth().signInWhitPopup(provider)
+firebase.auth().signInWithPopup(provider)
 .then(result => console.log(`${result.user.email}ha iniciado sesion`))
 .catch(error =>console.log(`error ${error.code}: ${error.message}`));
 }
@@ -37,7 +35,7 @@ firebase.auth().signInWhitPopup(provider)
 handleLogout(){
   firebase.auth().signOut()
 .then(result => console.log(`${result.user.email}ha cerrado sesion`))
-.catch(error =>console.log(`Èrror ${error.code}: ${error.message}`));
+.catch(error =>console.log(`error ${error.code}: ${error.message}`));
 
 }
 
@@ -50,12 +48,12 @@ if(this.state.user){
     <div>
       <img src = {this.state.user.photoURL} alt = {this.state.user.displayName}/>
       <p>Hola{this.state.user.displayName}!</p>
-      <button onClick={this.handle}></button>
+      <button onClick={this.handleLogout}>Salir</button>
     </div>
   );
 }else{
   return(
-<button onClick={this.handleLogout}>Salir</button>
+<button onClick={this.handleAuth}>Login with google</button>
   );
 }
 }
