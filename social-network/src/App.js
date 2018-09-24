@@ -2,7 +2,7 @@ import React, { Component } from 'react'; // Importa React: Component
 // import logo from './logo.svg'; // Evita rutas relativas/estaticas
 import firebase from 'firebase';
 import './App.css'; // css del componente App
-
+// functional component // rev
 class App extends Component {
   loginGoogle () {
     const provider = new firebase.auth.GoogleAuthProvider();
