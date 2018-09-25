@@ -1,9 +1,10 @@
 .App {
   text-align: center;
+ 
 }
 
-.App-header {
-  height: 30px;
+.Form {
+ height: 30px;
   padding: 20px;
   color: white;
 }

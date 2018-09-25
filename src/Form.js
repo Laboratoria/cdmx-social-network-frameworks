@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Input, Button } from 'react-materialize';
 const form = ({authGoogle}) => {
     return ( 
-        <form>
+        <form className="Form">
             <Row>
                 <Button type="button" waves='light' className="Google-button" onClick={authGoogle} > Continuar con Google </Button>
             </Row>
@@ -14,10 +14,10 @@ const form = ({authGoogle}) => {
                 <Button type ="button" waves='light' className="inicio-button" > Iniciar sesión </Button>
             </Row>
             <Row>
-                <Input type="password" label="password" m={10} s={10} />
+                 <Input  type="email" label="Email" s={12} />
             </Row>
             <Row>
-                <Input  type="email" label="Email" m={10} s={10} />
+                 <Input type="password" label="password" s={12} />
             </Row>
         </form>
     )
