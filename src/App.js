@@ -1,9 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 import './App.css';
+import firebase from 'firebase'; 
 //se importa un fichero svg como variable para poderlo implementar sin problemas de tipo de ruta
 //crear un boton con un evento onClick que llama a la funcion de autenticaciòn google
 //se importa firebase
-import firebase from 'firebase';        
+
+
+
+class App extends Component {
+  
+}
+
+    
 class App extends Component {
 constructor () {
   super();
@@ -61,6 +71,16 @@ if(this.state.user){
 
   render() {
     return (
+      <div className="App container">
+      <Navbar fluid collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">Scratch</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+      </Navbar>
+    </div>
       <div className="App">
         <div className="App-header">
           <h2 className="App-title">Red Social</h2>
