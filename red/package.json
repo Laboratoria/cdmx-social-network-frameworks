@@ -2,7 +2,7 @@
   "name": "red",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://judithcortes.github.io/cdmx-social-network-frameworks/",
+  "homepage":"https://JudithCortes.github.io/cdmx-social-network-frameworks",
   "dependencies": {
     "firebase": "^5.5.1",
     "gh-pages": "^2.0.0",
