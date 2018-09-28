@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import "./App.css";
 
+
 class App extends Component {
   render() {
      return (
-        <div className="App container">
-          <Navbar fluid collapseOnSelect>
+        <div className="App">
+          <Navbar inverse collapseOnSelect>
             <Navbar.Header>
               <Navbar.Brand>
                 <Link to="/">Petips</Link>
@@ -18,7 +19,7 @@ class App extends Component {
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav pullRight>
-                <LinkContainer to="/signup">
+                <LinkContainer to="/registro">
                   <NavItem>Registrarme</NavItem>
                 </LinkContainer>
                 <LinkContainer to="/login">
@@ -28,7 +29,7 @@ class App extends Component {
             </Navbar.Collapse>
           </Navbar>
           <Routes />
-        </div>
+        </div> 
       );
   }
 }

@@ -6,7 +6,8 @@ export default class Home extends Component {
     return (
       <div className="Home">
         <div className="lander">
-          <h1>Petips</h1>
+        <img src={require('../images/logo.png')} />
+         <h1>Petips</h1>
           <p>Red Social para mascotas</p>
         </div>
       </div>
