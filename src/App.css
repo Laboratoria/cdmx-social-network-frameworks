@@ -1,0 +1,14 @@
+@media all and (min-width: 480px) {
+  .App {
+    
+    background-color: #cadaef;
+    font-size: 20px;
+    height: 80%;
+  }
+  .App .navbar-brand {
+    font-weight: bold;
+    font-size: 20px;
+  }    
+  .App .navbar{background-color: #9948b2;}  
+}
+
