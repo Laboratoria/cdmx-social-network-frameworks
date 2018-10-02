@@ -23,11 +23,12 @@
 
 .brand-navbar{
   background-color:rgb(108, 194, 74);
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Pattaya', sans-serif;
+  /* font-size: 200px; */
 }
 
 .Facebook-button{
-  background-color: rgb(33, 150, 243);
+  background-color: rgb(66, 103, 178);
   text-transform: none !important;
   border-radius: 10px;
   padding-right:40px;
@@ -38,15 +39,16 @@
   background-color:rgb(108, 194, 74);
   text-transform: none !important;
   border-radius: 10px;
-  padding-right:40px;
-  padding-left: 40px;
+  padding-right:87px;
+  padding-left: 87px;
+  margin-bottom:20px;
 }
 .registro-button{
   background-color:rgb(108, 194, 74);
   text-transform: none !important;
   border-radius: 10px;
-  padding-right:60px;
-  padding-left:60px;
+  padding-right:108px;
+  padding-left:108px;
 }
 
 
@@ -58,4 +60,10 @@
 
 .card-container{
   width: 100%
+}
+
+.register-instruction{
+color:black;
+text-align: center;
+font-size: 15px;
 }

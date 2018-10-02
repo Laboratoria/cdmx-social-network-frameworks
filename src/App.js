@@ -16,9 +16,7 @@ class App extends Component {
     super();
     // el usuario va a esar vacío en primera instancia
     this.state = {
-      user: null,
-      email:"",
-      password:""
+      user: null
     };
     // todas las funciones que estén utilizando this., de esta manera le estamos indicando cuál es la referencia al objeto this que queremos que utilice
 
@@ -83,6 +81,7 @@ if (this.state.user){
       return (
         <div className="App">
           <Navbar />
+        <p>¡Comparte recetas saludables y deliciosas con tus amigos!</p>
           <div className="App-intro">{ this.renderLoginButton() }</div>
         
         </div>
