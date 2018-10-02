@@ -12,7 +12,7 @@ class NewPost extends Component {
          message:""
     }
     this.handleMessage = this.handleMessage.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
-        this.sentMessage =this.sentMessage.bind(this);
+    this.sentMessage =this.sentMessage.bind(this);
 }
 
   handleMessage (e){
