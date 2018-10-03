@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import Navbar from './Navbar';
 import Login from './Login'
 import Profile from './Profile'
-import Posts from './Posts.js'
+// import Posts from './Posts.js'
 import NewPost from './NewPost'
 // assets // fichero app
 import './App.css';
@@ -24,7 +24,8 @@ class App extends Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.renderLoginButton = this.renderLoginButton.bind(this);
     this.handleAuthFacebook= this.handleAuthFacebook.bind(this);
-
+    // this.handleMessage = this.handleMessage.bind(this); // las funciones permanecen a ese componente App; es para que no pierda el scope
+    // this.sentMessage =this.sentMessage.bind(this);
   }
 
   // método de lifecycle de react, lo que hace es dispararse una vez el componente ha sido renderizado en el DOM
@@ -32,7 +33,7 @@ class App extends Component {
     // devuelve un objeto usuario. Cada vez que nos loggeemos o salgamos, el objeto va a tener el usuario o va a salir null
   firebase.auth().onAuthStateChanged(user =>{
   // modifica el estado. Si la clave y el valor son el mismo, se peude poner solo una vez. Es lo mismo que user: user
-    this.setState({ user });
+    this.setState({ user});
    })
   }
   
@@ -59,6 +60,24 @@ class App extends Component {
     .catch(error => console.log (`Error ${error.code}: ${error.message}`))
   }
 
+  // handleMessage (e){
+  //   this.setState = ({
+  //     message: e.target.value
+  //   });
+  //   console.log(e.target.value)
+    
+  // }
+
+  // sentMessage (){
+  //   firebase.database().ref('new').push();
+  //   const postNew = firebase.database().ref('new').push();
+  //   const key = postNew.getKey();
+  //   firebase.database().ref(`new/${key}`).set({ 
+  //       message: this.state.message,
+  //       keyPost: key
+  //       });
+  // }
+
 
 renderLoginButton () {
 //  preguntamos si el usuario está logueado; es distino de null:
@@ -67,7 +86,7 @@ if (this.state.user){
   <div className="container">
    <Profile logOutFunction={this.handleLogout} user={this.state.user}/>
    <NewPost user={this.state.user}/> 
-   <Posts />
+   {/* <Posts /> */}
   </div>
     )
   }else{

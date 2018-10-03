@@ -5,7 +5,6 @@ import firebase from 'firebase';
 
 class Login extends Component {
     constructor(props) {
-      console.log(props)
         super(props);
      
         this.state = {
@@ -20,6 +19,7 @@ class Login extends Component {
 
     handleChange(e) {
       this.setState({[e.target.name]: e.target.value});
+      // console.log(e.target.name)
   }
 
     login(e) {

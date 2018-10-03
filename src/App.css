@@ -55,7 +55,10 @@
 .button-cerrar{
   font-size: 15px;
   text-transform: none !important;
-
+  position: absolute;
+  top: 9.5px;
+  right: 0;
+  box-shadow: none !important;
 }
 
 .card-container{
@@ -66,4 +69,23 @@
 color:black;
 text-align: center;
 font-size: 15px;
+}
+
+.button-pubish, .edit-message-btn, .delete-message-btn, .button-cerrar{
+  text-transform: none !important;
+  background-color:rgb(108, 194, 74);
+  border-radius: 10px;
+  box-shadow: none !important;
+
+}
+
+.user-name{
+  margin-bottom:0%;
+}
+.user-email{
+  margin-top:1%;
+}
+
+.button-pubish{
+  float: left;
 }

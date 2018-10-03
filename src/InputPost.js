@@ -5,7 +5,7 @@ const inputPost= () =>{
     return(
         <div>
 <Input s={3}/>
-<Button className="button-pubish" >Publicar</Button>
+<Button className="button-pubish">Publicar</Button>
 </div>
 )
 }
