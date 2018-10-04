@@ -1,21 +1,39 @@
-// import React from 'react';
-// import { Card, Icon, Button, Row } from 'react-materialize';
+import React, { Component } from 'react'
+import firebase from 'firebase';
 
+class Posts extends Component{
+    constructor() {
+        super();
+        this.state ={
+              posts:[]
+        }
+    }
 
-// const posts = () =>{
-//     return(
-//         <Card className='small card-container'>
-//         <Icon> favorite</Icon>
-//         <Button type= "button" className= "edit-message-btn waves-effect waves-light btn">Editar</Button>
-//         <Button type="button" className="delete-message-btn delete waves-effect waves-light btn">Borrar</Button> 
-//         <Row>
-//         Here will be your comment
-//         </Row> 
+  componentDidMount =() =>{
+    //   const { messages } = 
+      const nameRef = firebase.database().ref('new')
+      nameRef.on('child_added', snapshot =>{
+          const post = [];
+          snapshot.forEach(snap=>{
+             const snapsh = snap.val()
+             post.push(snapsh)
+          })
+        this.setState({
+                posts: post
+        })
+        })
+   
+}
 
-       
-           
-//         </Card>
-// )
-// }
+render(){
+    return(
+        <div>
+            {this.state.posts[1]}
+            {console.log(this.state.posts[1])}
+            
+        </div>
+    )
+}
+}
 
-// export default posts
+export default Posts;
