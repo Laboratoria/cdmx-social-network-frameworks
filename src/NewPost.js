@@ -18,38 +18,24 @@ class NewPost extends Component {
   }
 
   sentMessage = () =>{
-    firebase.database().ref('new').push();
+    const currentUser = firebase.auth().currentUser;
     const newPost = firebase.database().ref('new').push();
     const key = newPost.getKey();
-    firebase.database().ref(`new/${key}`).set({ 
+    firebase.database().ref(`new/${key}`).set({
+        creatorName:currentUser.displayName,
+        UserEmail: currentUser.email, 
+        creator: currentUser.uid,
         message: this.state.messageInput,
         keyPost: key
         })
           this.setState({messageInput: ''})        
   }
 
-//   printPost = () => {
-//     firebase.database().ref('new')
-//       .on('child_added', (message) => {
-//         return(
-// <Card className='small card-container'>
-//    <Icon> favorite</Icon>
-//    <Button type= "button" className= "edit-message-btn waves-effect waves-light btn">Editar</Button>
-//   <Button type="button" className="delete-message-btn delete waves-effect waves-light btn">Borrar</Button> 
-//          <Row>
-//          </Row> 
-//          </Card>
-//         )
-//         }) 
-      
-//       }
-
   render() {
       return(
     <div>
       <Input  name="messageInput" placeholder="¿Qué tip saludable compartirás hoy?" onChange={this.handleMessage} />
       <Button className="button-pubish" onClick={this.sentMessage} >Publicar</Button>
-      {/* <Posts /> */}
     </div>
     )
   }

@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   // método de lifecycle de react, lo que hace es dispararse una vez el componente ha sido renderizado en el DOM
-  componentWillMount = () => {
+  componentWillMount () {
     // devuelve un objeto usuario. Cada vez que nos loggeemos o salgamos, el objeto va a tener el usuario o va a salir null
   firebase.auth().onAuthStateChanged(user =>{
   // modifica el estado. Si la clave y el valor son el mismo, se peude poner solo una vez. Es lo mismo que user: user
@@ -61,7 +61,7 @@ if (this.state.user){
   <div className="container">
    <Profile logOutFunction={this.handleLogout} user={this.state.user}/>
    <NewPost user={this.state.user}/> 
-   <Posts />
+   <Posts user={this.state.user} />
   </div>
     )
   }else{
