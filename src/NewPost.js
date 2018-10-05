@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { Input, Button } from 'react-materialize';
+import { Input, Button, Modal } from 'react-materialize';
 // import Posts from 'Posts'
 
 class NewPost extends Component {
@@ -23,6 +23,7 @@ class NewPost extends Component {
     const key = newPost.getKey();
     firebase.database().ref(`new/${key}`).set({
         creatorName:currentUser.displayName,
+        photoUrl: currentUser.photoURL,
         UserEmail: currentUser.email, 
         creator: currentUser.uid,
         message: this.state.messageInput,
@@ -34,10 +35,13 @@ class NewPost extends Component {
   render() {
       return(
     <div>
-      <Input  name="messageInput" placeholder="¿Qué tip saludable compartirás hoy?" onChange={this.handleMessage} />
-      <Button className="button-pubish" onClick={this.sentMessage} >Publicar</Button>
+      <Modal trigger={<Button className="publicar-algo-button">Nuevo post</Button>}>
+        <Input  name="messageInput" placeholder="¿Qué tip saludable compartirás hoy?" onChange={this.handleMessage} />
+        <Button className="button-pubish" onClick={this.sentMessage} >Publicar</Button>
+      </Modal>
     </div>
     )
   }
 }
  export default NewPost;
+

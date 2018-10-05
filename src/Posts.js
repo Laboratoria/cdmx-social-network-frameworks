@@ -3,9 +3,8 @@ import firebase from 'firebase';
 import { Card, Button } from 'react-materialize'
 
 class Posts extends Component{
-    constructor(props) {
-        console.log(props)
-        super(props);
+    constructor() {
+        super();
         this.state ={
               posts:[]
         }
@@ -27,12 +26,35 @@ class Posts extends Component{
 render(){
 // console.log(this.state.posts)
     return(
-            <div>
+             <div className="post-container">
                 {this.state.posts.map(post=>{
-                    return(
+                    // console.log(post);
+                return(
                     <Card  className={post.keyPost}>
-                    </Card>
-                    {/* <div className="container post-cont">
+                        <div className="post-content"  >
+                        <img src={post.photoUrl} width="7%" alt="" className="circle img-user"/>
+                            <p className="user-name-post">{post.creatorName}</p>
+                            <p id={post.keyPost} className="post-message">{post.message}</p>
+                      </div>
+                      <div className ="card-action card-footer">
+                      
+                            <Button type= "button" data-key={post.keyPost} className= "edit-message-btn"> Editar </Button>
+                            <Button type="button"  data-key={post.keyPost} className="delete-message-btn"> Borrar </Button>
+                            <p id ={post.keyPost} className="favorite-counter right"></p><i data-key={post.keyPost} className="small material-icons right favoriteCounter">favorite</i>
+                      </div> 
+                  </Card>
+                        )
+                      })
+                    }
+              </div>
+    )
+  }
+}
+
+
+export default Posts;
+
+        {/* <div className="container post-cont">
                     <div>
                        <img className= "circle photoProfile" width = "100" src = {post.photoURL} alt = {post.displayName}/> 
                        <p className="userPost"> <strong>{post.UserEmail}</strong>:</p>
@@ -45,11 +67,4 @@ render(){
                     {/* <div className={post.keyPost}>
                     {post.message}
                     </div> */}
-                )})}
-            </div>
-    )
-  }
-}
-
-
-export default Posts;
+                // )})}
